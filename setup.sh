@@ -100,6 +100,12 @@ then
   cd ~
 fi
 
+# Set stream app to use
+case "$NAME" in
+	"Arch Linux"|"Arch Linux ARM") echo -e "{\n\t\"streamapp\": \"streamlink\"\n}" >config.json ;;
+	"Raspbian GNU/Linux") echo -e "{\n\t\"streamapp\": \"livestreamer\"\n}" >config.json ;;
+esac
+
 # RUN PICAST FOR THE FIRST TIME...
 chmod +x picast_start.sh
 chmod +x picast_stop.sh
